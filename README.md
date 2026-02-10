@@ -1,4 +1,4 @@
-﻿# SLVZ.MAUI.SystemUI
+﻿# SLVZ.Maui.SystemUI
 
 
 ## That does this package do
