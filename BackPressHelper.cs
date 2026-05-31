@@ -3,13 +3,13 @@ using AndroidX.Activity;
 
 namespace SLVZ.Maui.SystemUI;
 
-public class BackPressHandler
+public static class BackPressHelper
 {
     public static event EventHandler OnBackPressed = delegate { };
 
     private static bool _isInitialized = false;
 
-    static BackPressHandler()
+    static BackPressHelper()
     {
         if (_isInitialized) return;
         var activity = Platform.CurrentActivity as ComponentActivity;
@@ -23,7 +23,7 @@ public class BackPressHandler
         public BackCallback(bool enabled) : base(enabled) { }
 
         public override void HandleOnBackPressed()
-        => BackPressHandler.OnBackPressed.Invoke("BackPressHandler", EventArgs.Empty);
+        => BackPressHelper.OnBackPressed.Invoke("BackPressHandler", EventArgs.Empty);
     }
 }
 #endif

@@ -7,7 +7,7 @@ using System.Diagnostics;
 
 namespace SLVZ.Maui.SystemUI;
 
-public class Edge2EdgeHandler
+public class Edge2EdgeHelper
 {
 
 

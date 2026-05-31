@@ -16,9 +16,9 @@
 		<AssemblyTitle>SLVZ Maui SystemUI</AssemblyTitle>
 		<AssemblyName>SLVZ.Maui.SystemUI</AssemblyName>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Version>1.1.2</Version>
-		<AssemblyVersion>1.1.2</AssemblyVersion>
-		<FileVersion>1.1.2</FileVersion>
+		<Version>1.1.3</Version>
+		<AssemblyVersion>1.1.3</AssemblyVersion>
+		<FileVersion>1.1.3</FileVersion>
 		<PackageTags>C#, Maui, Edge-to-Edge, Back Pressed Dispatcher</PackageTags>
 		<Description>A lightweight Maui library for handling new requirements like Edge-to-Edge layouts</Description>
 
