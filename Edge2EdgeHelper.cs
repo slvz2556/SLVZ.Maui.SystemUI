@@ -1,9 +1,6 @@
 ﻿#if ANDROID
-using Android.App;
 using AndroidX.Activity;
 using AndroidX.Core.View;
-using AndroidX.Lifecycle;
-using System.Diagnostics;
 
 namespace SLVZ.Maui.SystemUI;
 
@@ -14,7 +11,7 @@ public class Edge2EdgeHelper
     private static Page? _page { get; set; }
     private static Shell? _shell { get; set; }
 
-    private static InsetsListener _Insets;
+    private static InsetsListener? _Insets;
 
     public static int NavbarHeight { get; private set; } = 0;
     public static int StatusbarHeight { get; private set; } = 0;
@@ -82,7 +79,6 @@ public class Edge2EdgeHelper
         {
 
             var activity = Platform.CurrentActivity as ComponentActivity;
-
 
             WindowCompat.SetDecorFitsSystemWindows(activity?.Window, false);
 
