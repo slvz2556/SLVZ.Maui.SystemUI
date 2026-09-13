@@ -2,12 +2,40 @@
 
 namespace SLVZ.Maui.SystemUI;
 
+public enum ConnectionProfile
+{
+    /// <summary>
+    /// No connection profile is available.
+    /// </summary>
+    None,
+    /// <summary>
+    /// The device is connected to a Wi-Fi network.
+    /// </summary>
+    WiFi,
+    /// <summary>
+    /// The device is connected to a cellular network.
+    /// </summary>
+    Cellular,
+    /// <summary>
+    /// The device is connected to an Ethernet network.
+    /// </summary>
+    Ethernet,
+    /// <summary>
+    /// The device is connected to a Bluetooth network.
+    /// </summary>
+    Bluetooth
+}
+
+
+
+
+
 public class Network
 {
     /// <summary>
     /// Raised when the system network changes.
     /// </summary>
-    public static event EventHandler<ConnectivityChangedEventArgs>? OnConnectionChange;
+    public static event EventHandler<List<ConnectionProfile>>? OnConnectionChange;
 
     static Network()
     {
@@ -18,7 +46,21 @@ public class Network
 
     private static void Connectivity_ConnectivityChanged(object? sender, ConnectivityChangedEventArgs e)
     {
-        OnConnectionChange?.Invoke(sender, e);
+        var list = new List<ConnectionProfile>();
+
+        foreach(var profile in e.ConnectionProfiles)
+        {
+            list.Add(profile switch
+            {
+                Microsoft.Maui.Networking.ConnectionProfile.Unknown => ConnectionProfile.None,
+                Microsoft.Maui.Networking.ConnectionProfile.WiFi => ConnectionProfile.WiFi,
+                Microsoft.Maui.Networking.ConnectionProfile.Bluetooth => ConnectionProfile.Bluetooth,
+                Microsoft.Maui.Networking.ConnectionProfile.Ethernet => ConnectionProfile.Ethernet,
+                Microsoft.Maui.Networking.ConnectionProfile.Cellular => ConnectionProfile.Cellular
+            });
+        }
+
+        OnConnectionChange?.Invoke(sender, list);
     }
 
     public static bool Connected
