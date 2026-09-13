@@ -23,7 +23,9 @@ public enum ConnectionProfile
     /// <summary>
     /// The device is connected to a Bluetooth network.
     /// </summary>
-    Bluetooth
+    Bluetooth,
+
+    All
 }
 
 
@@ -65,7 +67,7 @@ public class Network
 
     public static bool Connected
     {
-        get => (Connectivity.ConnectionProfiles.Contains(ConnectionProfile.WiFi) || Connectivity.ConnectionProfiles.Contains(ConnectionProfile.Bluetooth) || Connectivity.ConnectionProfiles.Contains(ConnectionProfile.Ethernet) || Connectivity.ConnectionProfiles.Contains(ConnectionProfile.Cellular))
+        get => (Connectivity.ConnectionProfiles.Contains(Microsoft.Maui.Networking.ConnectionProfile.WiFi) || Connectivity.ConnectionProfiles.Contains(Microsoft.Maui.Networking.ConnectionProfile.Bluetooth) || Connectivity.ConnectionProfiles.Contains(Microsoft.Maui.Networking.ConnectionProfile.Ethernet) || Connectivity.ConnectionProfiles.Contains(Microsoft.Maui.Networking.ConnectionProfile.Cellular))
             && Connectivity.NetworkAccess == NetworkAccess.Internet;
     }
 }
